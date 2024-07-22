@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>HeaderFooter</PackageId>
+		<Version>1.0.1</Version>
+		<Authors>Viswanatha Swamy P K</Authors>
+		<Company>Home</Company>
+		<Product>ViswanathaSwamy P K TechSkillz Academy</Product>
+		<Description>This package provides HeaderFooter Common Library</Description>
+		<Copyright>© 2023 - 2024 Swamy Home</Copyright>
+		<PackageTags>common-headerfooter</PackageTags>
+		<PackageReleaseNotes>Initial version 1.0</PackageReleaseNotes>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<RepositoryUrl>https://github.com/ViswanathaSwamy-PK-TechSkillz-Academy/Libraries-Common-Dot-Net</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="System.Console" Static="true" />
+	</ItemGroup>
+
+</Project>
