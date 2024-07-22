@@ -8,7 +8,7 @@ This repository contains the .NET libraries
 
 ```powershell
 $localpackagesfolder="D:\Packages\TSA"
-$localpackagesourcename="Local-Packages"
+$localpackagesourcename="Local-Packages-TSA"
 ```
 
 ### 1.2. Publishing the packages to local folder using PowerShell Windows Terminal
@@ -30,3 +30,24 @@ dotnet clean
 dotnet build
 dotnet pack -o $localpackagesfolder
 ```
+
+## 2. Add the Local NuGet package folder as Package Source
+
+### 2.1. Adding local packages folder as NuGet source using PowerShell Windows Terminal
+
+> 1. Run the following `dotnet` commands.
+
+```powershell
+dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
+```
+
+### 2.2. Verify local packages folder is added as NuGet source
+
+> 1. Run the following `dotnet` commands, to ensure that `$localpackagesourcename` is added as NuGet package source.
+> 1. Run the following `dotnet nuget remove source $localpackagesourcename` command, to remove NuGet package source.
+
+```powershell
+dotnet nuget list source
+```
+
+![NuGet Packages Local Folder |150x150](./Images/NuGetPackages/NuGetPackages_LocalFolder.PNG)
