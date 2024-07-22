@@ -31,6 +31,8 @@ dotnet build
 dotnet pack -o $localpackagesfolder
 ```
 
+![Publish Packages Locally](documentation/images/Publish_Packages_Locally.PNG)
+
 ## 2. Add the Local NuGet package folder as Package Source
 
 ### 2.1. Adding local packages folder as NuGet source using PowerShell Windows Terminal
@@ -50,4 +52,4 @@ dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
 dotnet nuget list source
 ```
 
-![NuGet Packages Local Folder |150x150](./Images/NuGetPackages/NuGetPackages_LocalFolder.PNG)
+![Local NuGet Packages Source |150x150](documentation/images/Local_Nuget_Packages_Source.PNG.jpg)
