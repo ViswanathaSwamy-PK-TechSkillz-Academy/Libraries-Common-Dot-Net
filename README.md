@@ -52,4 +52,4 @@ dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
 dotnet nuget list source
 ```
 
-![Local NuGet Packages Source |150x150](documentation/images/Local_Nuget_Packages_Source.PNG.jpg)
+![Local NuGet Packages Source |150x150](documentation/images/Local_Nuget_Packages_Source.PNG)
