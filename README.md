@@ -40,7 +40,9 @@ dotnet pack -o $localpackagesfolder
 > 1. Run the following `dotnet` commands.
 
 ```powershell
+dotnet nuget list source
 dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
+dotnet nuget remove source $localpackagesourcename
 ```
 
 ### 2.2. Verify local packages folder is added as NuGet source
@@ -53,3 +55,15 @@ dotnet nuget list source
 ```
 
 ![Local NuGet Packages Source |150x150](documentation/images/Local_Nuget_Packages_Source.PNG)
+
+## 3. Create and Publish NuGet packages to GitHub Packages using dotnet CLI and PowerShell
+
+### 3.1. Creating required Variables using PowerShell Windows Terminal
+
+To be done
+
+### 3.2. Publishing the packages to GitHub Packages using PowerShell Windows Terminal
+
+![DotNet Nuger Package published in GitHub](documentation/images/Publish_Packages_To_GitHub.PNG)
+
+![DotNet Nuger Package published in GitHub](documentation/images/DotNet_Package_In_GitHub.PNG)
