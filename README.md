@@ -56,13 +56,25 @@ dotnet nuget list source
 
 ![Local NuGet Packages Source |150x150](documentation/images/Local_Nuget_Packages_Source.PNG)
 
-## 3. Create and Publish NuGet packages to GitHub Packages using dotnet CLI and PowerShell
+## 3. Consuming Local NuGet package inside our application
 
-### 3.1. Creating required Variables using PowerShell Windows Terminal
+### 3.1. Verify local packages folder is added as NuGet source
+
+```powershell
+dotnet nuget list source
+```
+
+### X.2. Creating required Variables using PowerShell Windows Terminal
+
+### X.3. Creating required Variables using PowerShell Windows Terminal
+
+## X. Create and Publish NuGet packages to GitHub Packages using dotnet CLI and PowerShell
+
+### X.1. Creating required Variables using PowerShell Windows Terminal
 
 To be done
 
-### 3.2. Publishing the packages to GitHub Packages using PowerShell Windows Terminal
+### X.2. Publishing the packages to GitHub Packages using PowerShell Windows Terminal
 
 ![DotNet Nuger Package published in GitHub](documentation/images/Publish_Packages_To_GitHub.PNG)
 

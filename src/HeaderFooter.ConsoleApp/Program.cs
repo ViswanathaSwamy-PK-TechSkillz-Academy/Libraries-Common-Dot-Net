@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿ForegroundColor = ConsoleColor.DarkCyan;
+
+WriteLine("Hello, C# 12, and DotNet 8 !");
+
+string name = typeof(Program).Namespace ?? "None!";
+WriteLine($"Namespace: {name}");
+
+ResetColor();
