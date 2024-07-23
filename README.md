@@ -41,8 +41,8 @@ dotnet pack -o $localpackagesfolder
 
 ```powershell
 dotnet nuget list source
-dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
 dotnet nuget remove source $localpackagesourcename
+dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
 ```
 
 ### 2.2. Verify local packages folder is added as NuGet source
