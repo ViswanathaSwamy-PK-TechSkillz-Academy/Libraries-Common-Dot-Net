@@ -40,7 +40,9 @@ dotnet pack -o $localpackagesfolder
 > 1. Run the following `dotnet` commands.
 
 ```powershell
+dotnet nuget list source
 dotnet nuget add source $localpackagesfolder -n $localpackagesourcename
+dotnet nuget remove source $localpackagesourcename
 ```
 
 ### 2.2. Verify local packages folder is added as NuGet source
