@@ -60,9 +60,14 @@ dotnet nuget list source
 
 ### 3.1. Verify local packages folder is added as NuGet source
 
+> 1. We can verify using the command line.
+> 1. We can verify using VS 2022.
+
 ```powershell
 dotnet nuget list source
 ```
+
+![Local NuGet Packages Source |150x150](documentation/images/Local_Nuget_Packages_VS2022.PNG)
 
 ### X.2. Creating required Variables using PowerShell Windows Terminal
 
