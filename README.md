@@ -20,8 +20,8 @@ $localpackagesourcename="Local-Packages-TSA"
 
 ```xml
 <PropertyGroup>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.1</AssemblyVersion>
+    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
 </PropertyGroup>
 ```
 

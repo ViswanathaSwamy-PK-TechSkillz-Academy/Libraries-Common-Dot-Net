@@ -11,4 +11,8 @@
 		<Using Include="System.Console" Static="true" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="HeaderFooter" Version="1.0.3" />
+	</ItemGroup>
+
 </Project>
