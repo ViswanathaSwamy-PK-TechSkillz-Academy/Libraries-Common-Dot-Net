@@ -1,0 +1,1 @@
+dotnet add package HeaderFooter --version 1.0.2 --source gHTechSkillzAcademy
