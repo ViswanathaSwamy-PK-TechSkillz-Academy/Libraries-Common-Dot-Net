@@ -1,9 +1,23 @@
+# GitHub Actions workflow to publish .NET 8 library to GitHub Packages
+
 name: Publish .NET package
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main # or the branch you want to trigger the action
+
+# Set up permissions for deploying with secretless Azure federated credentials
+# https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#set-up-azure-login-with-openid-connect-authentication
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+defaults:
+  run:
+    working-directory: ./src/HeaderFooter
 
 jobs:
   build:
