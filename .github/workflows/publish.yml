@@ -19,8 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      Version: ${{ steps.gitversion.outputs.SemVer }}
-      CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}
+      Version: ${{ steps.determine_version.outputs.Version }}
+      CommitsSinceVersionSource: ${{ steps.determine_version.outputs.CommitsSinceVersionSource }}
 
     steps:
       - name: Checkout code
@@ -39,13 +39,22 @@ jobs:
           versionSpec: 5.x
 
       - name: Determine Version
+        id: determine_version
         uses: gittools/actions/gitversion/execute@v0.9.12
-        id: gitversion # step id used as reference for output values
+
+      - name: Save GitVersion outputs
+        id: save_version
+        run: |
+          echo "Version=${{ steps.determine_version.outputs.SemVer }}" >> $GITHUB_ENV
+          echo "CommitsSinceVersionSource=${{ steps.determine_version.outputs.CommitsSinceVersionSource }}" >> $GITHUB_ENV
+        outputs:
+          Version: ${{ steps.determine_version.outputs.SemVer }}
+          CommitsSinceVersionSource: ${{ steps.determine_version.outputs.CommitsSinceVersionSource }}
 
       - name: Display GitVersion outputs
         run: |
-          echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
-          echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}"
+          echo "Version: ${{ env.Version }}"
+          echo "CommitsSinceVersionSource: ${{ env.CommitsSinceVersionSource }}"
 
       - name: Restore dependencies
         run: dotnet restore
@@ -54,7 +63,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Pack the project
-        run: dotnet pack --configuration Release --no-restore -p:Version='${{ steps.gitversion.outputs.SemVer }}'
+        run: dotnet pack --configuration Release --no-restore -p:Version='${{ env.Version }}'
 
       - name: Upload NuGet package
         uses: actions/upload-artifact@v4
