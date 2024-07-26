@@ -91,7 +91,7 @@ jobs:
           tag: ${{ needs.build.outputs.Version }}
           name: Release ${{ needs.build.outputs.Version }}
           artifacts: "nugetPackage/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GHUB_PAT }}
 
     #   - name: Publish to GitHub Packages
     #     run: dotnet nuget push '**/*.nupkg' --skip-duplicate --source 'https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json' --api-key ${{ secrets.GITHUB_TOKEN }}
