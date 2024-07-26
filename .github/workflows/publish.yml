@@ -42,6 +42,6 @@ jobs:
         run: dotnet pack --configuration Release --no-restore
 
       - name: Publish to GitHub Packages
-        run: dotnet nuget push '**/*.nupkg' --source 'https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json' --api-key ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet nuget push '**/*.nupkg' --skip-duplicate --source 'https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json' --api-key ${{ secrets.GITHUB_TOKEN }}
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
