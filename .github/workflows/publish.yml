@@ -58,9 +58,42 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Pack the project
-        run: dotnet pack --configuration Release --no-restore
+        run: dotnet pack --configuration Release --no-restore -p:Version='${{ steps.gitversion.outputs.SemVer }}'
 
-      - name: Publish to GitHub Packages
-        run: dotnet nuget push '**/*.nupkg' --skip-duplicate --source 'https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json' --api-key ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload NuGet package
+        uses: actions/upload-artifact@v2
+        with:
+          name: nugetPackage
+          path: "**/*.nupkg"
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' # only run job if on the main branch
+
+    steps:
+      - name: Download NuGet package artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: nugetPackage
+
+    #   - name: Prep packages
+    #     run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.NUGET_AUTH_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json"
+
+    #   - name: Push package to GitHub packages
+    #     if: needs.build.outputs.CommitsSinceVersionSource > 0 # Only release if there has been a commit/version change
+    #     run: dotnet nuget push '**/*.nupkg' --skip-duplicate --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source "github"
+
+    #   - name: Create Release
+    #     if: needs.build.outputs.CommitsSinceVersionSource > 0 # Only release if there has been a commit/version change
+    #     uses: ncipollo/release-action@v1
+    #     with:
+    #       tag: ${{ needs.build.outputs.Version }}
+    #       name: Release ${{ needs.build.outputs.Version }}
+    #       artifacts: "nugetPackage/*"
+    #       token: ${{ secrets.NUGET_AUTH_TOKEN }}
+
+    #   - name: Publish to GitHub Packages
+    #     run: dotnet nuget push '**/*.nupkg' --skip-duplicate --source 'https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json' --api-key ${{ secrets.GITHUB_TOKEN }}
+    #     env:
+    #       NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
