@@ -86,5 +86,5 @@ jobs:
         with:
           tag: ${{ needs.build.outputs.Version }}
           name: Release ${{ needs.build.outputs.Version }}
-          artifacts: "nugetPackage/*"
+          artifacts: "**/HeaderFooter/bin/Release/*.nupkg"
           token: ${{ secrets.GHUB_PAT }}
