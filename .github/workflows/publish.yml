@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: nugetPackage
-          path: "**/*.nupkg"
+          path: "**/HeaderFooter/bin/Release/*.nupkg"
 
   release:
     runs-on: ubuntu-latest
