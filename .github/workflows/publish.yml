@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main # or the branch you want to trigger the action
+      - main
 
 permissions:
   id-token: write
@@ -26,12 +26,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # fetch-depth is needed for GitVersion
+          fetch-depth: 0
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "8.0.x" # Use the appropriate .NET version
+          dotnet-version: "8.0.x"
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v3.0
@@ -40,7 +40,7 @@ jobs:
 
       - name: Determine Version
         uses: gittools/actions/gitversion/execute@v3.0.0
-        id: gitversion # step id used as reference for output values
+        id: gitversion
 
       - name: Display GitVersion outputs
         run: |
@@ -65,7 +65,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/main' # only run job if on the main branch
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download NuGet package artifact
@@ -77,11 +77,11 @@ jobs:
         run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name gHTechSkillzAcademy "https://nuget.pkg.github.com/ViswanathaSwamy-PK-TechSkillz-Academy/index.json"
 
       - name: Push package to GitHub packages
-        if: needs.build.outputs.CommitsSinceVersionSource > 0 # Only release if there has been a commit/version change
+        if: needs.build.outputs.CommitsSinceVersionSource > 0
         run: dotnet nuget push '**/*.nupkg' --skip-duplicate --api-key ${{ secrets.GITHUB_TOKEN }} --source "gHTechSkillzAcademy"
 
       - name: Create Release
-        if: needs.build.outputs.CommitsSinceVersionSource > 0 # Only release if there has been a commit/version change
+        if: needs.build.outputs.CommitsSinceVersionSource > 0
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ needs.build.outputs.Version }}
