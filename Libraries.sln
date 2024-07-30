@@ -13,7 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{338936B7-670
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeaderFooter", "src\HeaderFooter\HeaderFooter.csproj", "{DABE9198-5F9B-451F-9AC5-2A20239EB962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeaderFooter.ConsoleApp", "src\HeaderFooter.ConsoleApp\HeaderFooter.ConsoleApp.csproj", "{634E3AC4-06C7-4043-9BBB-89C71C9602A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeaderFooter.ConsoleApp", "src\HeaderFooter.ConsoleApp\HeaderFooter.ConsoleApp.csproj", "{634E3AC4-06C7-4043-9BBB-89C71C9602A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0CD76D45-5576-4A82-92F7-7777D8438CFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{64C8D6F8-A5C4-4580-A0A9-10658F6A6A31}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +43,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DABE9198-5F9B-451F-9AC5-2A20239EB962} = {338936B7-670C-406D-A8E8-AA2866C4417E}
 		{634E3AC4-06C7-4043-9BBB-89C71C9602A5} = {338936B7-670C-406D-A8E8-AA2866C4417E}
+		{64C8D6F8-A5C4-4580-A0A9-10658F6A6A31} = {0CD76D45-5576-4A82-92F7-7777D8438CFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E834007-A239-47AE-BABE-8BAE25A9F0DB}

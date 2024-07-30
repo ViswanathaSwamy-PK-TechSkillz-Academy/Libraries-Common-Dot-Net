@@ -14,7 +14,8 @@
 		<PackageTags>common-headerfooter</PackageTags>
 		<PackageReleaseNotes>Initial version 1.0</PackageReleaseNotes>
 		<!--<AssemblyVersion>0.1.8</AssemblyVersion>-->
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<!-- Remove or set GeneratePackageOnBuild to False -->
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageProjectUrl>https://github.com/ViswanathaSwamy-PK-TechSkillz-Academy/Libraries-Common-Dot-Net</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/ViswanathaSwamy-PK-TechSkillz-Academy/Libraries-Common-Dot-Net</RepositoryUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
