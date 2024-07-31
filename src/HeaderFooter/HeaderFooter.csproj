@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>HeaderFooter</PackageId>
-		<!--<Version>0.1.8</Version>-->
+		<Version>0.1.12</Version>
 		<Authors>Viswanatha Swamy P K</Authors>
 		<Company>Home</Company>
 		<Product>ViswanathaSwamy P K TechSkillz Academy</Product>
@@ -13,7 +13,7 @@
 		<Copyright>© 2023 - 2024 Swamy Home</Copyright>
 		<PackageTags>common-headerfooter</PackageTags>
 		<PackageReleaseNotes>Initial version 1.0</PackageReleaseNotes>
-		<!--<AssemblyVersion>0.1.8</AssemblyVersion>-->
+		<AssemblyVersion>0.1.12</AssemblyVersion>
 		<!-- Remove or set GeneratePackageOnBuild to False -->
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageProjectUrl>https://github.com/ViswanathaSwamy-PK-TechSkillz-Academy/Libraries-Common-Dot-Net</PackageProjectUrl>
